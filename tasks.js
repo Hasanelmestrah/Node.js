@@ -18,6 +18,10 @@ function startApp(name){
 }
 
 
+
+// when your write help in terminal you get the instructions
+
+
 /**
  * Decides what to do depending on the data that was received
  * This function receives the input sent by the user.
@@ -33,14 +37,18 @@ function startApp(name){
  * @param  {string} text data typed by the user
  * @returns {void}
  */
+
+  console.log;
 function onDataReceived(text) {
-  if (text === 'quit\n' ||text ==='exit\n') {
+  text = text.trim();
+
+  if (text === 'quit' ||text ==='exit') {
     quit();
   }
-  else if(text ==='help\n'){
+  else if(text ==='help'){
     help();
   }
-  else if(text === 'hello\n'){
+  else if(text === 'hello'){
     hello();
   }
   else{
