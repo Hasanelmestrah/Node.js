@@ -53,6 +53,9 @@ function onDataReceived(text) {
   else if (text === 'list') {
     list();
   }
+  else if (text.startsWith ('add')){
+    add(text);
+  }
   else {
     unknownCommand(text);
   }
@@ -82,15 +85,23 @@ function help() {
   console.log("help:it will give you instructions\n" + "hello:hello!" + "quit or exit:quit the qpplication");
 }
 
-var tasks = ["hasan","mousa"];
+var tasks = [];
 function list() {
-  console.log("tasks:");
+  console.log("tasks is :");
   tasks.forEach(function (tasks, index) {
-    console.log(`${index+1}:${tasks}`);
+    console.log(`${index + 1}:${tasks}`);
 
   });
 
 }
+function add(text){
+
+ 
+  console.log(`adding ${tasks.push(text.substring(4))}`);
+}
+
+
+
 
 /**
  * Exits the application
