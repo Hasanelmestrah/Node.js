@@ -38,7 +38,6 @@ function startApp(name){
  * @returns {void}
  */
 
-  console.log;
 function onDataReceived(text) {
   text = text.trim();
 
@@ -48,8 +47,8 @@ function onDataReceived(text) {
   else if(text ==='help'){
     help();
   }
-  else if(text === 'hello'){
-    hello();
+  else if(text.startsWith('hello')){
+    hello(text);
   }
   else{
     unknownCommand(text);
@@ -74,8 +73,11 @@ function unknownCommand(c){
  *
  * @returns {void}
  */
-function hello(){
-  console.log('hello!')
+function hello(text){
+ 
+
+    console.log(`hello ${text.substring(6)} !`)
+
 }
 
 function help(){
