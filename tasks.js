@@ -76,7 +76,7 @@ function unknownCommand(c){
 function hello(text){
  
 
-    console.log(`hello ${text.substring(6)} !`)
+    console.log(`hello ${text.substring(6)}!`)
 
 }
 
