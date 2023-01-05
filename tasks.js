@@ -9,7 +9,7 @@
  * @param  {string} name the name of the app
  * @returns {void}
  */
-function startApp(name){
+function startApp(name) {
   process.stdin.resume();
   process.stdin.setEncoding('utf8');
   process.stdin.on('data', onDataReceived);
@@ -41,16 +41,19 @@ function startApp(name){
 function onDataReceived(text) {
   text = text.trim();
 
-  if (text === 'quit' ||text ==='exit') {
+  if (text === 'quit' || text === 'exit') {
     quit();
   }
-  else if(text ==='help'){
+  else if (text === 'help') {
     help();
   }
-  else if(text.startsWith('hello')){
+  else if (text.startsWith('hello')) {
     hello(text);
   }
-  else{
+  else if (text === 'list') {
+    list();
+  }
+  else {
     unknownCommand(text);
   }
 }
@@ -63,33 +66,38 @@ function onDataReceived(text) {
  * @param  {string} c the text received
  * @returns {void}
  */
-function unknownCommand(c){
-  console.log('unknown command: "'+c.trim()+'"')
+function unknownCommand(c) {
+  console.log('unknown command: "' + c.trim() + '"')
 }
-
-
 /**
  * Says hello
  *
  * @returns {void}
  */
-function hello(text){
- 
-    console.log(`hello ${text.substring(6)}!`)
-
+function hello(text) {
+  console.log(`hello ${text.substring(6)}!`)
 }
 
-function help(){
-  console.log("help:it will give you instructions\n"+"hello:hello!"+"quit or exit:quit the qpplication");
+function help() {
+  console.log("help:it will give you instructions\n" + "hello:hello!" + "quit or exit:quit the qpplication");
 }
 
+var tasks = ["hasan","mousa"];
+function list() {
+  console.log("tasks:");
+  tasks.forEach(function (tasks, index) {
+    console.log(`${index+1}:${tasks}`);
+
+  });
+
+}
 
 /**
  * Exits the application
  *
  * @returns {void}
  */
-function quit(){
+function quit() {
   console.log('Quitting now, goodbye!')
   process.exit();
 }
