@@ -53,8 +53,11 @@ function onDataReceived(text) {
   else if (text === 'list') {
     list();
   }
-  else if (text.startsWith ('add')){
+  else if (text.startsWith('add')) {
     add(text);
+  }
+  else if (text.startsWith('remove')) {
+    remove(text);
   }
   else {
     unknownCommand(text);
@@ -94,13 +97,16 @@ function list() {
   });
 
 }
-function add(text){
+function add(text) {
 
- 
   console.log(`adding ${tasks.push(text.substring(4))}`);
 }
 
 
+function remove(text) {
+  const index = parseInt(text.substring(7)) - 1;
+  console.log(`removing ${tasks.splice(index, 1)}`);
+}
 
 
 /**
@@ -115,3 +121,5 @@ function quit() {
 
 // The following line starts the application
 startApp("Hasan El-Mestrah")
+
+
