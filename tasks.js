@@ -71,7 +71,7 @@ function hello(){
 }
 
 function help(){
-  console.log("help:it will give you instructions\n"+"hello:hello!");
+  console.log("help:it will give you instructions\n"+"hello:hello!"+"quit or exit:quit the qpplication");
 }
 
 
