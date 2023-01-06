@@ -17,10 +17,7 @@ function startApp(name) {
   console.log("--------------------")
 }
 
-
-
 // when your write help in terminal you get the instructions
-
 
 /**
  * Decides what to do depending on the data that was received
@@ -106,6 +103,14 @@ function add(text) {
 function remove(text) {
   const index = parseInt(text.substring(7)) - 1;
   console.log(`removing ${tasks.splice(index, 1)}`);
+  if (!index) {
+    console.log('The index exists in the array');
+  } else {
+    console.log('The index does not exist in the array');
+  }
+  // if (index = undefined){
+  //   console.log("you enter a number that does not exist");
+  // }
 }
 
 
