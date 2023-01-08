@@ -56,6 +56,9 @@ function onDataReceived(text) {
   else if (text.startsWith('remove')) {
     remove(text);
   }
+  else if (text === 'edit'){
+    edit(text);
+  }
   else {
     unknownCommand(text);
   }
@@ -112,7 +115,38 @@ function remove(text) {
   //   console.log("you enter a number that does not exist");
   // }
 }
+function edit(text) {
+  const parts = text.split(" ");
+  if (parts.length < 3) {
+    console.log("Please enter a task number and a new task description.");
+  } else {
+    const index = parseInt(parts[1]) - 1;
+    if (isNaN(index) || index < 0 || index >= tasks.length) {
+      console.log("Please enter a valid task number.");
+    } else {
+      tasks[index] = parts.slice(2).join(" ");
+      console.log(`Task ${index + 1} edited!`);
+    }
+  }
+  console.log('----------------------------');
+}
+// function editByIndex(text)
+// {
 
+//   return index;
+// }
+
+// function edit(text){
+//   const index = parseInt(text.substring(5,6));
+//   console.log(index);
+//   // if (!text){
+    
+//   // }
+//   // else {
+//   //   console.log('you dont enter anything "ERROR"');
+//   // }
+
+// }
 
 /**
  * Exits the application
